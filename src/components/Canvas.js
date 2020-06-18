@@ -34,7 +34,6 @@ class Canvas extends Component {
         this.context.strokeStyle = this.state.hex 
         this.context.lineJoin = "round"
         this.context.lineWidth = 3
-
     }
 
     componentDidMount(){
@@ -57,8 +56,7 @@ class Canvas extends Component {
        const coords = this.state.coords;
        if(x > 0 && x < this.width && y > 0 && y < this.height) {
            if(coords){
-
-               //way to draw in canvas
+            //way to draw in canvas
                this.context.beginPath();
                this.context.moveTo(coords[0], coords[1]);
                this.context.lineTo(x, y);
@@ -73,12 +71,14 @@ class Canvas extends Component {
        }
 
     }
+
     // sets coords when mouse goes up the button
     onCanvasMouseUp = (event) => {
         this.setState({
             coords: null
         });
     }
+
     // sets coords when mouse goes downthe button
     onCanvasMouseDown = (event) => {
        const x = event.nativeEvent.offsetX;
@@ -91,21 +91,21 @@ class Canvas extends Component {
     render(){
         return(
             <div>
-            <Title />
-            <div style = {divStyles} >
-            <ColourSelector hex ={this.state.hex} onColourSelectorChange = {this.onColourSelectorChange} />
-            </div>
-            <div style = {divStyles} >
-            <canvas
-                ref = {this.canvasRef}
-                width = {this.width}
-                height = {this.height}
-                onMouseMove = {this.onCanvasMouseMove}
-                onMouseDown = {this.onCanvasMouseDown}
-                onMouseUp = {this.onCanvasMouseUp}
-                style = {canvasStyles}
-            />
-            </div>
+                <Title />
+                <div style = {divStyles} >
+                <ColourSelector hex ={this.state.hex} onColourSelectorChange = {this.onColourSelectorChange} />
+                </div>
+                <div style = {divStyles} >
+                <canvas
+                    ref = {this.canvasRef}
+                    width = {this.width}
+                    height = {this.height}
+                    onMouseMove = {this.onCanvasMouseMove}
+                    onMouseDown = {this.onCanvasMouseDown}
+                    onMouseUp = {this.onCanvasMouseUp}
+                    style = {canvasStyles}
+                />
+                </div>
             </div>  
         );
     }

@@ -7,8 +7,7 @@ const ColourSelector =(props) => {
                 <input type ="color" Value ={hex} onChange = {(event) => onColourSelectorChange(event.target.value)}/>
             </div>
             
-        );
-   
+        );  
 //     static defaultProps = {
 //         hex: "#f4424b"   
 }
